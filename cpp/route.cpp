@@ -1,37 +1,61 @@
 #include <iostream>
 #include <fstream>
-#include <map>
 #include <list>
 #include <string>
-
 using namespace std;
 
-map<string, list<pair<string,int>>> graph; // Graph: city -> list of <destination, distance>
+struct Route {
+    string src;
+    string dest;
+    int dist;
+};
 
-void addRoute(string src, string dest, int dist) {
-    graph[src].push_back({dest, dist});
+list<Route> routes;
+
+// Load existing routes from file
+void loadRoutes() {
+    routes.clear();
+    ifstream fin("data/routes.txt");
+    if(!fin) return;
+    string src,dest; int dist;
+    while(fin >> src >> dest >> dist) {
+        routes.push_back({src,dest,dist});
+    }
+    fin.close();
 }
 
-void deleteRoute(string src, string dest) {
-    if(graph.find(src) != graph.end()) {
-        graph[src].remove_if([dest](pair<string,int> p){ return p.first == dest; });
-    }
+// Save all routes to file
+void saveRoutes() {
+    ofstream fout("data/routes.txt");
+    for(auto r : routes)
+        fout << r.src << " " << r.dest << " " << r.dist << endl;
+    fout.close();
 }
 
-void displayRoutes(ofstream &fout) {
-    for(auto &v : graph) {
-        for(auto &edge : v.second) {
-            fout << v.first << " -> " << edge.first << " : " << edge.second << " km" << endl;
-        }
+// Generate GUI-friendly output
+void writeOutput(string msg) {
+    ofstream fout("data/output.txt");
+    fout << msg << endl;
+    fout.close();
+}
+
+void writeAllRoutes() {
+    ofstream fout("data/output.txt");
+    if(routes.empty()) {
+        fout << "No routes available" << endl;
+    } else {
+        for(auto r : routes)
+            fout << r.src << " -> " << r.dest << " : " << r.dist << " km" << endl;
     }
+    fout.close();
 }
 
 int main() {
-    ifstream fin("data/input.txt");
-    ofstream fout("data/routes.txt");
+    loadRoutes();
 
+    ifstream fin("data/input.txt");
     if(!fin) {
-        fout << "ERROR: input.txt not found";
+        writeOutput("ERROR: input.txt not found");
         return 0;
     }
 
@@ -39,26 +63,26 @@ int main() {
     fin >> command;
 
     if(command == "ADD") {
-        string src, dest;
-        int dist;
+        string src,dest; int dist;
         fin >> src >> dest >> dist;
-        addRoute(src, dest, dist);
-        fout << "Route Added Successfully";
+        routes.push_back({src,dest,dist});
+        saveRoutes();
+        writeAllRoutes(); // show all routes immediately
 
     } else if(command == "DELETE") {
-        string src, dest;
+        string src,dest;
         fin >> src >> dest;
-        deleteRoute(src, dest);
-        fout << "Route Deleted Successfully";
+        routes.remove_if([&](Route r){ return r.src==src && r.dest==dest; });
+        saveRoutes();
+        writeAllRoutes();
 
     } else if(command == "VIEW") {
-        displayRoutes(fout);
+        writeAllRoutes();
 
     } else {
-        fout << "Invalid Command";
+        writeOutput("Invalid Command");
     }
 
     fin.close();
-    fout.close();
     return 0;
 }
