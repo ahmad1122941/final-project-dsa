@@ -1,1 +1,3 @@
-Vehicle Deleted Successfully
+bwp -> isl : 600 km
+mul -> isl : 600 km
+mul -> isl : 600 km
