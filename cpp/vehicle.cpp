@@ -73,7 +73,7 @@ void deleteVehicle(int id) {
 /* =====================
    FILE-BASED INTEGRATION
    ===================== */
-int main() {
+void runVehicle() {
     initHashTable();
 
     ifstream fin("data/input.txt");
@@ -81,7 +81,7 @@ int main() {
 
     if (!fin) {
         fout << "ERROR: input.txt not found";
-        return 0;
+        return;
     }
 
     string command;
@@ -121,5 +121,4 @@ int main() {
 
     fin.close();
     fout.close();
-    return 0;
 }

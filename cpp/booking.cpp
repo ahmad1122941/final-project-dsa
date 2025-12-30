@@ -31,13 +31,15 @@ void saveBookings() {
     fout.close();
 }
 
-int main() {
+// 🔴 SIRF YAHAN CHANGE HUA HAI
+void runBooking() {
+
     ifstream in("../data/booking_input.txt");
     ofstream out("../data/booking_output.txt");
 
     if (!in) {
         out << "ERROR: Cannot open booking_input.txt\n";
-        return 0;
+        return;
     }
 
     loadBookings();
@@ -52,7 +54,6 @@ int main() {
         saveBookings();
         out << "Booking Confirmed for " << b.name << endl;
     }
-
     else if (command == "VIEW") {
         if (bookings.empty()) {
             out << "No bookings available\n";
@@ -63,7 +64,6 @@ int main() {
             }
         }
     }
-
     else if (command == "CANCEL") {
         string id;
         in >> id;
@@ -84,5 +84,4 @@ int main() {
 
     in.close();
     out.close();
-    return 0;
 }

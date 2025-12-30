@@ -1,0 +1,42 @@
+===== SMART TRANSPORT MANAGEMENT SYSTEM REPORT =====
+System Version: 1.0
+Generated On: 2025-01-10
+--------------------------------------------------
+
+[VEHICLE MODULE]
+Total Vehicles Registered: 18
+Bus Count: 6
+Car Count: 8
+Van Count: 4
+
+[ROUTE MODULE]
+Total Cities: 25
+Total Routes: 68
+Longest Route: Karachi -> Quetta (690 km)
+Shortest Route: Lahore -> Gujranwala (75 km)
+
+[SHORTEST PATH MODULE]
+Total Queries: 22
+Last Path: Islamabad -> Peshawar (223 km)
+
+[TRAFFIC MODULE]
+Peak Traffic Route: Lahore -> Multan (35%)
+Lowest Traffic Route: Faisalabad -> Sahiwal (5%)
+
+[BOOKING MODULE]
+Total Bookings: 31
+Active Bookings: 26
+Cancelled Bookings: 5
+
+[FARE MODULE]
+Base Fare: 50 PKR
+Total Revenue: 124,500 PKR
+
+[SCHEDULER MODULE]
+Peak Hours: 8AM - 10AM
+Delayed Routes Today: 3
+
+[SYSTEM LOGS]
+All Modules Executed Successfully
+System Health: GOOD
+--------------------------------------------------

@@ -1,0 +1,5 @@
+Vehicle Type : Car
+Distance     : 200 km
+Rate per km  : Rs 40
+----------------------------
+Total Fare   : Rs 8000

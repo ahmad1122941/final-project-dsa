@@ -1,0 +1,30 @@
+Booking ID   : 2123
+Customer     : ahmad
+Vehicle ID   : V001
+Route        : isl → bwp
+Expected Time: 12:00 AM - 01:41 AM
+------------------------------------
+Booking ID   : 123
+Customer     : ahmad
+Vehicle ID   : V003
+Route        : islamabad → lahore
+Expected Time: 12:00 AM - 02:47 AM
+------------------------------------
+Booking ID   : 123
+Customer     : ahamd
+Vehicle ID   : V005
+Route        : isclamad → lahore
+Expected Time: 12:00 AM - 02:34 AM
+------------------------------------
+Booking ID   : 323
+Customer     : zaid
+Vehicle ID   : V002
+Route        : lahore → quetta
+Expected Time: 12:00 AM - 02:40 AM
+------------------------------------
+Booking ID   : fc
+Customer     : cvcfgc
+Vehicle ID   : V004
+Route        : gyugu → gyu
+Expected Time: 12:00 AM - 02:29 AM
+------------------------------------

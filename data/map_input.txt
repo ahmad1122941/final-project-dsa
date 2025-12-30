@@ -1,0 +1,34 @@
+Islamabad Rawalpindi 15
+Rawalpindi Attock 40
+Attock Nowshera 60
+Nowshera Peshawar 45
+Peshawar Mardan 35
+Mardan Swabi 30
+Swabi Haripur 45
+Haripur Abbottabad 30
+Abbottabad Mansehra 30
+Mansehra Balakot 25
+Balakot Kaghan 40
+Kaghan Naran 20
+Naran Chilas 120
+Chilas Gilgit 130
+Gilgit Skardu 170
+
+Islamabad Murree 60
+Murree KotliSattian 35
+KotliSattian Kahuta 40
+Kahuta Rawat 30
+Rawat Islamabad 25
+
+Islamabad Chakwal 90
+Chakwal Mianwali 160
+Mianwali Bhakkar 80
+Bhakkar Layyah 75
+Layyah Multan 150
+Multan Khanewal 40
+Khanewal Sahiwal 90
+Sahiwal Lahore 180
+Lahore Gujranwala 70
+Gujranwala Gujrat 40
+Gujrat Jhelum 50
+Jhelum Rawalpindi 100

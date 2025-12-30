@@ -1,0 +1,8 @@
+Source City        : Mardan
+Destination City   : Islamabad
+----------------------------------
+Actual Distance    : 250 km
+Traffic Percentage : 17 %
+Extra Distance     : 39 km
+----------------------------------
+Traffic Aware Total: 289 km

@@ -10,16 +10,17 @@ struct Route {
     int dist;
 };
 
-list<Route> routes;
+// 🔴 renamed global variable
+list<Route> routeList;
 
 // Load existing routes from file
 void loadRoutes() {
-    routes.clear();
+    routeList.clear();
     ifstream fin("data/routes.txt");
     if(!fin) return;
     string src,dest; int dist;
     while(fin >> src >> dest >> dist) {
-        routes.push_back({src,dest,dist});
+        routeList.push_back({src,dest,dist});
     }
     fin.close();
 }
@@ -27,7 +28,7 @@ void loadRoutes() {
 // Save all routes to file
 void saveRoutes() {
     ofstream fout("data/routes.txt");
-    for(auto r : routes)
+    for(auto r : routeList)
         fout << r.src << " " << r.dest << " " << r.dist << endl;
     fout.close();
 }
@@ -41,22 +42,23 @@ void writeOutput(string msg) {
 
 void writeAllRoutes() {
     ofstream fout("data/output.txt");
-    if(routes.empty()) {
+    if(routeList.empty()) {
         fout << "No routes available" << endl;
     } else {
-        for(auto r : routes)
+        for(auto r : routeList)
             fout << r.src << " -> " << r.dest << " : " << r.dist << " km" << endl;
     }
     fout.close();
 }
 
-int main() {
+// 🔴 ONLY CHANGE: main → runRoute()
+void runRoute() {
     loadRoutes();
 
     ifstream fin("data/input.txt");
     if(!fin) {
         writeOutput("ERROR: input.txt not found");
-        return 0;
+        return;
     }
 
     string command;
@@ -65,14 +67,14 @@ int main() {
     if(command == "ADD") {
         string src,dest; int dist;
         fin >> src >> dest >> dist;
-        routes.push_back({src,dest,dist});
+        routeList.push_back({src,dest,dist});
         saveRoutes();
-        writeAllRoutes(); // show all routes immediately
+        writeAllRoutes();
 
     } else if(command == "DELETE") {
         string src,dest;
         fin >> src >> dest;
-        routes.remove_if([&](Route r){ return r.src==src && r.dest==dest; });
+        routeList.remove_if([&](Route r){ return r.src==src && r.dest==dest; });
         saveRoutes();
         writeAllRoutes();
 
@@ -84,5 +86,4 @@ int main() {
     }
 
     fin.close();
-    return 0;
 }

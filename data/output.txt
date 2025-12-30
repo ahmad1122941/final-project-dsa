@@ -1,3 +1,1 @@
-bwp -> isl : 600 km
-mul -> isl : 600 km
-mul -> isl : 600 km
+Invalid city name!

@@ -99,10 +99,8 @@ public class BookingUI {
         b.setBorder(BorderFactory.createEmptyBorder(8, 15, 8, 15));
     }
 
-    // ✅ FIXED EXECUTION (MODULE-SAFE)
     void execute(String cmd) {
         try {
-            // ✔ booking module ka apna input
             FileWriter fw = new FileWriter("../data/booking_input.txt");
 
             if (cmd.equals("BOOK")) {
@@ -117,11 +115,9 @@ public class BookingUI {
             }
             fw.close();
 
-            // ✔ correct exe
             ProcessBuilder pb = new ProcessBuilder("../cpp/booking.exe");
             pb.start().waitFor();
 
-            // ✔ booking module ka apna output
             BufferedReader br =
                     new BufferedReader(new FileReader("../data/booking_output.txt"));
 
@@ -140,6 +136,12 @@ public class BookingUI {
         }
     }
 
+    // ✅ NEW STATIC RUN METHOD FOR MAINAPP
+    public static void run() {
+        new BookingUI();
+    }
+
+    // Optional old main
     public static void main(String[] args) {
         new BookingUI();
     }
